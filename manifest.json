@@ -1,0 +1,38 @@
+{
+  "name": "Financely – Life-Cost Finance",
+  "short_name": "Financely",
+  "description": "Übersetze Preise in deine wertvollste Ressource: Lebenszeit.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a12",
+  "theme_color": "#6366f1",
+  "categories": ["finance", "productivity"],
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Life-Cost Rechner",
+      "url": "./index.html#calc",
+      "description": "Berechne den Lebenszeit-Preis"
+    },
+    {
+      "name": "Sparziele",
+      "url": "./index.html#savings",
+      "description": "Deine Sparziele"
+    }
+  ]
+}
