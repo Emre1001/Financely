@@ -1,58 +1,70 @@
 # 💎 Financely – Life-Cost Finance Tracker
 
 [![PWA](https://img.shields.io/badge/PWA-Ready-7c7ef7?style=for-the-badge&logo=pwa)](https://github.com/)
+[![No Build](https://img.shields.io/badge/Build-None-22d3ee?style=for-the-badge)](https://github.com/)
 [![License](https://img.shields.io/badge/License-MIT-05c46b?style=for-the-badge)](https://github.com/)
 
-> **"Bezahle nicht mit Geld, sondern mit deiner Lebenszeit."**  
-> Financely ist ein moderner Budget-Tracker, der eine radikale Perspektive auf deine Finanzen wirft: Er rechnet jeden Preis in die Stunden um, die du dafür arbeiten musst – oder in die Anzahl der Döner, die du stattdessen essen könntest.
+> **„Bezahle nicht mit Geld, sondern mit deiner Lebenszeit."**
+> Financely rechnet jeden Preis in die **Arbeitsstunden** um, die du dafür brauchst – oder in **Döner**. Dazu ein vollwertiger, offline-fähiger Budget-Tracker mit Diagrammen, Budgets und Sparzielen. **Kein Server, kein Tracking, nur lokaler Speicher.**
 
 ---
 
-## ✨ Highlights
+## ✨ Features
 
-### 🥙 Döner-Index & Life-Cost
-Verstehe den wahren Wert deines Geldes. Rechne Käufe in **Arbeitsstunden** oder **Döner-Einheiten** um. Der Rechner passt sich dynamisch an deinen Stundenlohn und deine wöchentlichen Arbeitszeiten an.
-
-### 📊 Budget-Vitameter (Donut-Chart)
-Behalte den Überblick mit unserem kategorisierten Budget-Diagramm. Sieh auf einen Blick, wie viel Prozent deines Gehalts bereits für **Fixkosten**, **Essen** oder **Wohnen** verplant sind.
-
-### 🔁 Abo-Verwaltung
-Verwalte deine monatlichen Fixkosten an einem zentralen Ort. Sie werden automatisch von deinem verfügbaren Budget für den aktuellen Monat abgezogen.
-
-### 🥳 Gehalt-Modus
-Feiere den Zahltag mit einem Klick! Setze deine monatlichen Ausgaben zurück, während deine Abos und Sparziele sicher erhalten bleiben.
-
-### 🌍 Globale Unterstützung
-Wähle zwischen verschiedenen Währungen (€, $, £, CHF, ₺) und Sprachen (**Deutsch, English, Türkçe**) – direkt in den Einstellungen.
-
----
-
-## 🛠️ Installation & Setup
-
-Financely ist eine **PWA (Progressive Web App)** und läuft direkt in deinem Browser – ohne Server, ohne Tracking, nur lokaler Speicher.
-
-### Für Desktop (Windows)
-1. Lade das Repository herunter.
-2. Führe die `start_app.bat` aus.
-3. Die App öffnet sich in einem minimalistischen App-Fenster (Edge/Chrome App-Mode).
-
-### Für Mobile (iOS/Android)
-1. Öffne die App im Safari/Chrome.
-2. Wähle **"Zum Home-Bildschirm hinzufügen"**.
-3. Genieße das native App-Gefühl mit Fullscreen-Support.
+| | |
+|---|---|
+| 🥙 **Life-Cost & Döner-Index** | Käufe in Arbeitsstunden oder Döner umrechnen – Stundenlohn, Wochenstunden & Döner-Preis konfigurierbar. |
+| 📊 **Statistik & Diagramme** | Ausgaben nach Kategorie (Balken), 6-Monats-Trend (Linie), Einnahmen-vs-Ausgaben, Vormonatsvergleich, Sparkline. Alles handgebaute SVGs, 100 % offline. |
+| 💸 **Ausgaben-Verwaltung** | Hinzufügen, **bearbeiten, löschen**, suchen, nach Kategorie filtern, sortieren, Notizen, **wiederkehrende Ausgaben**. |
+| 💼 **Mehrere Einkommen** | Beliebig viele Einnahmequellen mit Zahltag, aktiv/inaktiv. |
+| 🔁 **Abos** | Fixkosten mit Kategorie, Abrechnungstag & Aktiv-Schalter – fließen automatisch ins Budget. |
+| 🎯 **Budgets & Warnungen** | Limits pro Kategorie, Fortschrittsbalken, Warnung bei ~90 % und Überschreitung. |
+| 🐖 **Sparziele** | Ziele mit Emoji, Fortschritt & Einzahlungen. |
+| 💾 **Backup** | Export/Import als **JSON**, Ausgaben-Export als **CSV**. |
+| 🎨 **Hell/Dunkel-Theme** | Umschaltbar, folgt dem System. |
+| 🏷️ **Eigene Kategorien** | Kategorien mit Emoji & Farbe anlegen/bearbeiten. |
+| 🌍 **Dreisprachig** | Deutsch · English · Türkçe – durchgehend übersetzt. |
 
 ---
 
-## 🎨 Design-Philosophie
-Financely nutzt ein **Premium Liquid-Glass Design**:
-- **Dunkel-Modus nativ**: Schonend für die Augen.
-- **Micro-Interactions**: Flüssige Animationen und Hover-Effekte.
-- **Mobile First**: Optimiert für einhändige Bedienung auf dem Smartphone.
+## 🚀 Tech & Architektur
+
+- **Zero-Build, rein statisch.** Kein npm, kein Bundler – einfach Dateien ausliefern.
+- **Modular:** `index.html` + `css/styles.css` + `js/*.js` (klassische, geordnete Scripts).
+- **Offline-first PWA:** Service Worker (App-Shell-Cache + sicherer Update-Flow), Web-App-Manifest.
+- **Daten** liegen ausschließlich im `localStorage` (versioniertes Schema mit automatischer Migration).
+
+```
+index.html          css/styles.css
+js/ i18n · state · charts · ui · calc · expenses · subscriptions
+    income · goals · budgets · dashboard · stats · settings · app
+sw.js · manifest.json
+```
+
+---
+
+## 🛠️ Installation
+
+### GitHub Pages (empfohlen)
+1. Repo-Settings → **Pages** → *Deploy from a branch* → Branch wählen, Ordner **`/ (root)`**.
+2. Fertig: `https://<user>.github.io/Financely/` öffnen. Alle Pfade sind relativ, läuft auch im Unterordner.
+
+### Lokal
+- Einen kleinen Server starten (Service Worker braucht HTTP):
+  ```bash
+  python3 -m http.server 8000
+  ```
+  Dann `http://localhost:8000/` öffnen.
+
+### Mobile
+Im Browser öffnen → **„Zum Home-Bildschirm hinzufügen"** → native App mit Fullscreen.
+
+---
+
+## 🎨 Design
+Premium **Liquid-Glass**: nativer Dark-Mode, Glas-Karten, Micro-Interactions, Haptik, Mobile-First für einhändige Bedienung.
 
 ---
 
 ## 📄 Lizenz
-Dieses Projekt ist unter der **MIT-Lizenz** lizenziert. Du kannst es gerne forken, anpassen und für deine Zwecke nutzen.
-
----
-*Erstellt mit ❤️ für finanzielle Freiheit.*
+**MIT** – forke, passe an, nutze es. *Erstellt mit ❤️ für finanzielle Freiheit.*
