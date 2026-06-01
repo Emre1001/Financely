@@ -1,0 +1,253 @@
+/* ═══════════════════════════════════════
+   I18N — Deutsch / English / Türkçe
+   t(key, vars?) with {var} interpolation.
+═══════════════════════════════════════ */
+const i18n = {
+  de: {
+    /* nav */
+    nav_overview:"Übersicht", nav_stats:"Statistik", nav_lifecost:"Life-Cost", nav_expenses:"Ausgaben", nav_more:"Mehr",
+    nav_goals:"Sparziele", nav_subs:"Abos", nav_budgets:"Budgets", nav_income:"Einkommen", nav_settings:"Einstellungen",
+    /* greetings */
+    greet_morning:"Guten Morgen 👋", greet_day:"Guten Tag 👋", greet_evening:"Guten Abend 👋",
+    /* dashboard */
+    label_income:"Monatliches Einkommen", hint_income:"Tippe zum Anzeigen · In Einkommen ändern",
+    label_spent:"Ausgaben", label_avail:"Verfügbar", sub_this_month:"diesen Monat", sub_remaining:"noch übrig", sub_overspent:"über Budget",
+    label_vitameter:"Budget-Vitameter", label_planned:"verplant", title_recent:"Letzte Ausgaben",
+    title_trend:"Ausgaben-Trend", title_budgets_dash:"Budgets", link_all:"Alle ansehen", link_manage:"Verwalten",
+    manage:"Verwalten",
+    /* life-cost */
+    sub_lifecost:"Preise in Lebenszeit umrechnen", label_price:"Preis des Artikels", label_wage:"Stundenlohn (netto)",
+    label_workhours:"Arbeitsstunden/Woche", label_mainview:"Hauptansicht", mode_time:"Zeit", mode_doner:"Döner",
+    res_cost_you:"Dieser Kauf kostet dich", unit_hours:"Stund.", unit_doner:"Döner", unit_days:"Tage", unit_weeks:"Woch.",
+    unit_day_short:"T", unit_hour_short:"h", unit_min_short:"m", doner_bite:"Döner-Biss",
+    btn_add_exp:"+ Als Ausgabe", title_quick:"Schnell-Vergleiche",
+    q_small:"⚡ Kleine Ausgabe!", q_think:"🤔 Überlege es dir gut.", q_warning:"⚠️ Das sind {days} Arbeitstage!", q_critical:"🔴 Mehrere Wochen deines Lebens!",
+    /* goals */
+    sub_goals:"Deine Träume, konkret gemacht", btn_goal:"Ziel", title_new_goal:"Neues Sparziel", title_edit_goal:"Ziel bearbeiten",
+    label_goal_name:"Zielname", ph_goal_name:"z.B. Neuer Laptop", label_optional:"optional", label_goal_target:"Zielbetrag",
+    btn_add:"Hinzufügen", empty_goals:"Noch keine Sparziele. Tippe + Ziel um anzufangen.",
+    goal_saved:"Gespart", goal_remaining:"Noch", goal_target:"Ziel", btn_deposit:"Einzahlen", ph_deposit:"Betrag einzahlen",
+    toast_deposited:"💰 {amount} eingezahlt!", toast_goal_added:"🎯 Ziel hinzugefügt!", toast_goal_deleted:"🗑️ Ziel gelöscht",
+    toast_goal_updated:"✅ Ziel aktualisiert", confirm_delete_goal:"Dieses Sparziel wirklich löschen?", goal_done:"Geschafft",
+    /* expenses */
+    expenses_title:"Ausgaben", btn_expense:"💸 Ausgabe", btn_expense_alt:"Ausgabe",
+    title_new_expense:"Neue Ausgabe", title_edit_expense:"Ausgabe bearbeiten",
+    label_name:"Bezeichnung", ph_expense_name:"z.B. Supermarkt Einkauf", label_amount:"Betrag", label_category:"Kategorie",
+    label_date:"Datum", label_note:"Notiz", ph_note:"optional", label_recurring:"Monatlich wiederholen",
+    btn_save_expense:"Ausgabe speichern", toast_expense_saved:"💸 Ausgabe gespeichert!", toast_expense_updated:"✅ Ausgabe aktualisiert",
+    toast_expense_deleted:"🗑️ Ausgabe gelöscht", confirm_delete_expense:"Diese Ausgabe wirklich löschen?",
+    ph_search:"Ausgabe suchen…", filter_all:"Alle", empty_search:"Keine passenden Ausgaben.", empty_expenses:"Noch keine Ausgaben. Tippe + Ausgabe um anzufangen.",
+    sort_date:"Neueste", sort_amount:"Betrag", sort_label:"Sortieren",
+    /* subscriptions */
+    subs_title:"Abos", sub_subs:"Deine monatlichen Fixkosten", btn_sub:"Abo",
+    title_new_sub:"Neues Abo", title_edit_sub:"Abo bearbeiten", ph_sub_name:"z.B. Streaming",
+    label_monthly_amount:"Betrag pro Monat", label_billing_day:"Abbuchungstag", label_active:"Aktiv",
+    monthly_sub:"Monatliches Abo", next_billing:"Nächste Abbuchung: {date}", subs_total:"Summe / Monat",
+    toast_sub_added:"✅ Abo hinzugefügt!", toast_sub_updated:"✅ Abo aktualisiert", toast_sub_deleted:"🗑️ Abo gelöscht",
+    confirm_delete_sub:"Dieses Abo wirklich löschen?", empty_subs:"Noch keine Abos. Tippe + Abo für Fixkosten.", paused:"Pausiert",
+    /* income */
+    income_title:"Einkommen", sub_income:"Deine Einnahmequellen", btn_income:"Quelle",
+    title_new_income:"Neue Einnahmequelle", title_edit_income:"Quelle bearbeiten", ph_income_name:"z.B. Gehalt",
+    label_income_amount:"Betrag pro Monat", label_payday:"Zahltag", income_total:"Gesamt / Monat",
+    toast_income_added:"✅ Quelle hinzugefügt!", toast_income_updated:"✅ Quelle aktualisiert", toast_income_deleted:"🗑️ Quelle gelöscht",
+    confirm_delete_income:"Diese Einnahmequelle wirklich löschen?", empty_income:"Noch keine Einnahmen. Tippe + Quelle.",
+    /* budgets */
+    budgets_title:"Budgets", sub_budgets:"Limits pro Kategorie", btn_set_budget:"Budget",
+    title_set_budget:"Budget festlegen", label_budget_limit:"Monatliches Limit",
+    toast_budget_saved:"✅ Budget gespeichert", toast_budget_removed:"🗑️ Budget entfernt",
+    budget_of:"von", budget_left:"übrig", budget_over:"über Budget", empty_budgets:"Noch keine Budgets. Lege Limits pro Kategorie fest.",
+    warn_budget_near:"⚠️ {cat}: {pct}% des Budgets", warn_budget_over:"🔴 {cat}: Budget überschritten!",
+    /* stats */
+    stats_title:"Statistik", sub_stats:"Deine Finanzen im Überblick", chart_by_category:"Ausgaben nach Kategorie",
+    chart_trend:"Verlauf (6 Monate)", chart_income_expense:"Einnahmen vs. Ausgaben", compare_prev:"Vergleich zum Vormonat",
+    this_month:"Dieser Monat", last_month:"Vormonat", no_data:"Noch keine Daten für Diagramme.",
+    legend_income:"Einnahmen", legend_expense:"Ausgaben", total_spent:"Gesamt-Ausgaben", avg_per_day:"Ø pro Tag", biggest_cat:"Top-Kategorie",
+    /* settings */
+    settings_title:"Einstellungen", label_currency:"Währung", label_lang:"Sprache", label_theme:"Design",
+    theme_dark:"Dunkel", theme_light:"Hell", btn_save:"Speichern", btn_delete_all:"🗑️ Alle Daten löschen",
+    confirm_delete_all:"Alle Daten wirklich löschen? Das kann nicht rückgängig gemacht werden.", toast_saved:"✅ Gespeichert!", toast_deleted:"🗑️ Daten gelöscht",
+    label_hourly_wage:"Stundenlohn (netto)", label_doner_price:"Döner-Preis",
+    section_appearance:"Darstellung", section_money:"Geld", section_data:"Daten & Backup",
+    btn_export_json:"⬇️ Backup exportieren (JSON)", btn_import_json:"⬆️ Backup importieren", btn_export_csv:"📄 Ausgaben als CSV",
+    btn_manage_cats:"🏷️ Kategorien verwalten", toast_exported:"⬇️ Backup exportiert", toast_imported:"✅ Daten importiert", toast_import_error:"❌ Ungültige Datei",
+    /* categories */
+    cat_food:"Essen", cat_transport:"Transport", cat_shopping:"Shopping", cat_housing:"Wohnen",
+    cat_leisure:"Freizeit", cat_health:"Gesundheit", cat_subscriptions:"Abos", cat_other:"Sonstiges",
+    cats_title:"Kategorien", btn_add_cat:"+ Kategorie", label_cat_name:"Name", label_cat_emoji:"Emoji", label_cat_color:"Farbe",
+    toast_cat_added:"✅ Kategorie hinzugefügt", toast_cat_deleted:"🗑️ Kategorie gelöscht", confirm_delete_cat:"Kategorie löschen? Ausgaben werden zu „Sonstiges“.",
+    /* more menu */
+    more_title:"Mehr", more_sub:"Verwaltung & Einstellungen",
+    mi_goals_sub:"Spare auf deine Träume", mi_subs_sub:"Monatliche Fixkosten", mi_budgets_sub:"Limits & Warnungen",
+    mi_income_sub:"Einnahmequellen verwalten", mi_settings_sub:"Sprache, Design, Backup",
+    /* common */
+    btn_cancel:"Abbrechen", btn_confirm:"Bestätigen", btn_close:"Schließen", btn_edit:"Bearbeiten", btn_delete:"Löschen",
+    legend_savings:"Sparziele", legend_free:"Frei", legend_over:"Überausgabe",
+    err_name_amount:"❌ Bitte Name und Betrag eingeben", err_fields:"❌ Bitte alle Felder ausfüllen",
+    btn_salary_here:"Neuer Monat", salary_arrival_confirm:"Neuen Monat starten? Die Ausgaben des aktuellen Monats werden gelöscht (Abos, Einkommen & Sparziele bleiben).", toast_new_month:"🎉 Viel Erfolg im neuen Monat!",
+    /* install / update */
+    ios_title:"📲 Zum Homescreen", ios_step1:"Tippe auf Teilen in Safari", ios_step2:"Wähle „Zum Home-Bildschirm“", ios_step3:"Tippe „Hinzufügen“ — fertig!",
+    install_title:"App installieren", install_sub:"Nativer App-Modus ohne Browser", btn_install:"Installieren",
+    update_available:"✨ Neue Version verfügbar", btn_update:"Neu laden"
+  },
+  en: {
+    nav_overview:"Overview", nav_stats:"Stats", nav_lifecost:"Life-Cost", nav_expenses:"Expenses", nav_more:"More",
+    nav_goals:"Goals", nav_subs:"Subscriptions", nav_budgets:"Budgets", nav_income:"Income", nav_settings:"Settings",
+    greet_morning:"Good Morning 👋", greet_day:"Good Day 👋", greet_evening:"Good Evening 👋",
+    label_income:"Monthly Income", hint_income:"Tap to show · Edit in Income",
+    label_spent:"Spent", label_avail:"Available", sub_this_month:"this month", sub_remaining:"remaining", sub_overspent:"over budget",
+    label_vitameter:"Budget Vitameter", label_planned:"planned", title_recent:"Recent Expenses",
+    title_trend:"Spending Trend", title_budgets_dash:"Budgets", link_all:"See all", link_manage:"Manage", manage:"Manage",
+    sub_lifecost:"Convert prices into life-time", label_price:"Item Price", label_wage:"Hourly Wage (net)",
+    label_workhours:"Work hours/week", label_mainview:"Main View", mode_time:"Time", mode_doner:"Kebab",
+    res_cost_you:"This purchase costs you", unit_hours:"Hours", unit_doner:"Kebab", unit_days:"Days", unit_weeks:"Weeks",
+    unit_day_short:"d", unit_hour_short:"h", unit_min_short:"m", doner_bite:"Kebab-bite",
+    btn_add_exp:"+ Add Expense", title_quick:"Quick Comparisons",
+    q_small:"⚡ Small expense!", q_think:"🤔 Think it over.", q_warning:"⚠️ That's {days} work days!", q_critical:"🔴 Several weeks of your life!",
+    sub_goals:"Your dreams, made concrete", btn_goal:"Goal", title_new_goal:"New Saving Goal", title_edit_goal:"Edit Goal",
+    label_goal_name:"Goal Name", ph_goal_name:"e.g. New Laptop", label_optional:"optional", label_goal_target:"Target Amount",
+    btn_add:"Add", empty_goals:"No goals yet. Tap + Goal to start.",
+    goal_saved:"Saved", goal_remaining:"Left", goal_target:"Target", btn_deposit:"Deposit", ph_deposit:"Deposit amount",
+    toast_deposited:"💰 {amount} deposited!", toast_goal_added:"🎯 Goal added!", toast_goal_deleted:"🗑️ Goal deleted",
+    toast_goal_updated:"✅ Goal updated", confirm_delete_goal:"Really delete this goal?", goal_done:"Done",
+    expenses_title:"Expenses", btn_expense:"💸 Expense", btn_expense_alt:"Expense",
+    title_new_expense:"New Expense", title_edit_expense:"Edit Expense",
+    label_name:"Name", ph_expense_name:"e.g. Grocery shopping", label_amount:"Amount", label_category:"Category",
+    label_date:"Date", label_note:"Note", ph_note:"optional", label_recurring:"Repeat monthly",
+    btn_save_expense:"Save expense", toast_expense_saved:"💸 Expense saved!", toast_expense_updated:"✅ Expense updated",
+    toast_expense_deleted:"🗑️ Expense deleted", confirm_delete_expense:"Really delete this expense?",
+    ph_search:"Search expense…", filter_all:"All", empty_search:"No matching expenses.", empty_expenses:"No expenses yet. Tap + Expense to start.",
+    sort_date:"Newest", sort_amount:"Amount", sort_label:"Sort",
+    subs_title:"Subscriptions", sub_subs:"Your monthly fixed costs", btn_sub:"Sub",
+    title_new_sub:"New Subscription", title_edit_sub:"Edit Subscription", ph_sub_name:"e.g. Streaming",
+    label_monthly_amount:"Amount per month", label_billing_day:"Billing day", label_active:"Active",
+    monthly_sub:"Monthly subscription", next_billing:"Next billing: {date}", subs_total:"Total / month",
+    toast_sub_added:"✅ Subscription added!", toast_sub_updated:"✅ Subscription updated", toast_sub_deleted:"🗑️ Subscription deleted",
+    confirm_delete_sub:"Really delete this subscription?", empty_subs:"No subscriptions yet. Tap + Sub for fixed costs.", paused:"Paused",
+    income_title:"Income", sub_income:"Your sources of income", btn_income:"Source",
+    title_new_income:"New Income Source", title_edit_income:"Edit Source", ph_income_name:"e.g. Salary",
+    label_income_amount:"Amount per month", label_payday:"Payday", income_total:"Total / month",
+    toast_income_added:"✅ Source added!", toast_income_updated:"✅ Source updated", toast_income_deleted:"🗑️ Source deleted",
+    confirm_delete_income:"Really delete this income source?", empty_income:"No income yet. Tap + Source.",
+    budgets_title:"Budgets", sub_budgets:"Limits per category", btn_set_budget:"Budget",
+    title_set_budget:"Set Budget", label_budget_limit:"Monthly limit",
+    toast_budget_saved:"✅ Budget saved", toast_budget_removed:"🗑️ Budget removed",
+    budget_of:"of", budget_left:"left", budget_over:"over budget", empty_budgets:"No budgets yet. Set limits per category.",
+    warn_budget_near:"⚠️ {cat}: {pct}% of budget", warn_budget_over:"🔴 {cat}: budget exceeded!",
+    stats_title:"Stats", sub_stats:"Your finances at a glance", chart_by_category:"Spending by category",
+    chart_trend:"Trend (6 months)", chart_income_expense:"Income vs. Expenses", compare_prev:"Compared to last month",
+    this_month:"This month", last_month:"Last month", no_data:"No data for charts yet.",
+    legend_income:"Income", legend_expense:"Expenses", total_spent:"Total spent", avg_per_day:"Avg per day", biggest_cat:"Top category",
+    settings_title:"Settings", label_currency:"Currency", label_lang:"Language", label_theme:"Theme",
+    theme_dark:"Dark", theme_light:"Light", btn_save:"Save", btn_delete_all:"🗑️ Delete all data",
+    confirm_delete_all:"Really delete all data? This cannot be undone.", toast_saved:"✅ Saved!", toast_deleted:"🗑️ Data deleted",
+    label_hourly_wage:"Hourly wage (net)", label_doner_price:"Kebab price",
+    section_appearance:"Appearance", section_money:"Money", section_data:"Data & Backup",
+    btn_export_json:"⬇️ Export backup (JSON)", btn_import_json:"⬆️ Import backup", btn_export_csv:"📄 Expenses as CSV",
+    btn_manage_cats:"🏷️ Manage categories", toast_exported:"⬇️ Backup exported", toast_imported:"✅ Data imported", toast_import_error:"❌ Invalid file",
+    cat_food:"Food", cat_transport:"Transport", cat_shopping:"Shopping", cat_housing:"Housing",
+    cat_leisure:"Leisure", cat_health:"Health", cat_subscriptions:"Subscriptions", cat_other:"Other",
+    cats_title:"Categories", btn_add_cat:"+ Category", label_cat_name:"Name", label_cat_emoji:"Emoji", label_cat_color:"Color",
+    toast_cat_added:"✅ Category added", toast_cat_deleted:"🗑️ Category deleted", confirm_delete_cat:"Delete category? Its expenses become “Other”.",
+    more_title:"More", more_sub:"Management & settings",
+    mi_goals_sub:"Save for your dreams", mi_subs_sub:"Monthly fixed costs", mi_budgets_sub:"Limits & alerts",
+    mi_income_sub:"Manage income sources", mi_settings_sub:"Language, theme, backup",
+    btn_cancel:"Cancel", btn_confirm:"Confirm", btn_close:"Close", btn_edit:"Edit", btn_delete:"Delete",
+    legend_savings:"Savings", legend_free:"Free", legend_over:"Overspent",
+    err_name_amount:"❌ Please enter name and amount", err_fields:"❌ Please fill in all fields",
+    btn_salary_here:"New Month", salary_arrival_confirm:"Start a new month? This month's expenses will be cleared (subs, income & goals stay).", toast_new_month:"🎉 Good luck this month!",
+    ios_title:"📲 To Homescreen", ios_step1:"Tap 'Share' in Safari", ios_step2:"Select 'Add to Home Screen'", ios_step3:"Tap 'Add' — done!",
+    install_title:"Install app", install_sub:"Native app mode without browser", btn_install:"Install",
+    update_available:"✨ New version available", btn_update:"Reload"
+  },
+  tr: {
+    nav_overview:"Genel", nav_stats:"İstatistik", nav_lifecost:"Life-Cost", nav_expenses:"Harcamalar", nav_more:"Daha",
+    nav_goals:"Hedefler", nav_subs:"Abonelikler", nav_budgets:"Bütçeler", nav_income:"Gelir", nav_settings:"Ayarlar",
+    greet_morning:"Günaydın 👋", greet_day:"İyi Günler 👋", greet_evening:"İyi Akşamlar 👋",
+    label_income:"Aylık Gelir", hint_income:"Görmek için dokun · Gelir'den değiştir",
+    label_spent:"Harcama", label_avail:"Kalan", sub_this_month:"bu ay", sub_remaining:"kullanılabilir", sub_overspent:"bütçe aşıldı",
+    label_vitameter:"Bütçe Göstergesi", label_planned:"planlanan", title_recent:"Son Harcamalar",
+    title_trend:"Harcama Trendi", title_budgets_dash:"Bütçeler", link_all:"Tümünü gör", link_manage:"Yönet", manage:"Yönet",
+    sub_lifecost:"Fiyatları ömür-maliyetine çevir", label_price:"Ürün Fiyatı", label_wage:"Saatlik Ücret (net)",
+    label_workhours:"Çalışma saati/hafta", label_mainview:"Ana Görünüm", mode_time:"Zaman", mode_doner:"Döner",
+    res_cost_you:"Bu satın alma sana:", unit_hours:"Saat", unit_doner:"Döner", unit_days:"Gün", unit_weeks:"Hafta",
+    unit_day_short:"g", unit_hour_short:"s", unit_min_short:"dk", doner_bite:"Döner-ısırık",
+    btn_add_exp:"+ Harcama Ekle", title_quick:"Hızlı Karşılaştırma",
+    q_small:"⚡ Küçük harcama!", q_think:"🤔 İyi düşün.", q_warning:"⚠️ Bu tam {days} iş günü!", q_critical:"🔴 Ömrünün birkaç haftası!",
+    sub_goals:"Hayallerini somutlaştır", btn_goal:"Hedef", title_new_goal:"Yeni Tasarruf Hedefi", title_edit_goal:"Hedefi Düzenle",
+    label_goal_name:"Hedef Adı", ph_goal_name:"örn. Yeni Laptop", label_optional:"isteğe bağlı", label_goal_target:"Hedef Tutar",
+    btn_add:"Ekle", empty_goals:"Henüz hedef yok. Başlamak için + Hedef.",
+    goal_saved:"Biriken", goal_remaining:"Kalan", goal_target:"Hedef", btn_deposit:"Yatır", ph_deposit:"Yatırılacak tutar",
+    toast_deposited:"💰 {amount} yatırıldı!", toast_goal_added:"🎯 Hedef eklendi!", toast_goal_deleted:"🗑️ Hedef silindi",
+    toast_goal_updated:"✅ Hedef güncellendi", confirm_delete_goal:"Bu hedef silinsin mi?", goal_done:"Tamam",
+    expenses_title:"Harcamalar", btn_expense:"💸 Harcama", btn_expense_alt:"Harcama",
+    title_new_expense:"Yeni Harcama", title_edit_expense:"Harcamayı Düzenle",
+    label_name:"Açıklama", ph_expense_name:"örn. Market alışverişi", label_amount:"Tutar", label_category:"Kategori",
+    label_date:"Tarih", label_note:"Not", ph_note:"isteğe bağlı", label_recurring:"Her ay tekrarla",
+    btn_save_expense:"Harcamayı kaydet", toast_expense_saved:"💸 Harcama kaydedildi!", toast_expense_updated:"✅ Harcama güncellendi",
+    toast_expense_deleted:"🗑️ Harcama silindi", confirm_delete_expense:"Bu harcama silinsin mi?",
+    ph_search:"Harcama ara…", filter_all:"Hepsi", empty_search:"Eşleşen harcama yok.", empty_expenses:"Henüz harcama yok. + Harcama'ya dokun.",
+    sort_date:"En yeni", sort_amount:"Tutar", sort_label:"Sırala",
+    subs_title:"Abonelikler", sub_subs:"Aylık sabit giderlerin", btn_sub:"Abone",
+    title_new_sub:"Yeni Abonelik", title_edit_sub:"Aboneliği Düzenle", ph_sub_name:"örn. Streaming",
+    label_monthly_amount:"Aylık tutar", label_billing_day:"Tahsilat günü", label_active:"Aktif",
+    monthly_sub:"Aylık abonelik", next_billing:"Sonraki tahsilat: {date}", subs_total:"Toplam / ay",
+    toast_sub_added:"✅ Abonelik eklendi!", toast_sub_updated:"✅ Abonelik güncellendi", toast_sub_deleted:"🗑️ Abonelik silindi",
+    confirm_delete_sub:"Bu abonelik silinsin mi?", empty_subs:"Henüz abonelik yok. + Abone'ye dokun.", paused:"Duraklatıldı",
+    income_title:"Gelir", sub_income:"Gelir kaynakların", btn_income:"Kaynak",
+    title_new_income:"Yeni Gelir Kaynağı", title_edit_income:"Kaynağı Düzenle", ph_income_name:"örn. Maaş",
+    label_income_amount:"Aylık tutar", label_payday:"Maaş günü", income_total:"Toplam / ay",
+    toast_income_added:"✅ Kaynak eklendi!", toast_income_updated:"✅ Kaynak güncellendi", toast_income_deleted:"🗑️ Kaynak silindi",
+    confirm_delete_income:"Bu gelir kaynağı silinsin mi?", empty_income:"Henüz gelir yok. + Kaynak'a dokun.",
+    budgets_title:"Bütçeler", sub_budgets:"Kategori başına limit", btn_set_budget:"Bütçe",
+    title_set_budget:"Bütçe Belirle", label_budget_limit:"Aylık limit",
+    toast_budget_saved:"✅ Bütçe kaydedildi", toast_budget_removed:"🗑️ Bütçe kaldırıldı",
+    budget_of:"/", budget_left:"kaldı", budget_over:"bütçe aşıldı", empty_budgets:"Henüz bütçe yok. Kategori limitleri belirle.",
+    warn_budget_near:"⚠️ {cat}: bütçenin %{pct}'i", warn_budget_over:"🔴 {cat}: bütçe aşıldı!",
+    stats_title:"İstatistik", sub_stats:"Finansların bir bakışta", chart_by_category:"Kategoriye göre harcama",
+    chart_trend:"Trend (6 ay)", chart_income_expense:"Gelir vs. Gider", compare_prev:"Önceki aya göre",
+    this_month:"Bu ay", last_month:"Geçen ay", no_data:"Grafik için henüz veri yok.",
+    legend_income:"Gelir", legend_expense:"Gider", total_spent:"Toplam harcama", avg_per_day:"Günlük ort.", biggest_cat:"En çok kategori",
+    settings_title:"Ayarlar", label_currency:"Para Birimi", label_lang:"Dil", label_theme:"Tema",
+    theme_dark:"Koyu", theme_light:"Açık", btn_save:"Kaydet", btn_delete_all:"🗑️ Tüm verileri sil",
+    confirm_delete_all:"Tüm veriler silinsin mi? Bu geri alınamaz.", toast_saved:"✅ Kaydedildi!", toast_deleted:"🗑️ Veriler silindi",
+    label_hourly_wage:"Saatlik ücret (net)", label_doner_price:"Döner fiyatı",
+    section_appearance:"Görünüm", section_money:"Para", section_data:"Veri & Yedek",
+    btn_export_json:"⬇️ Yedek dışa aktar (JSON)", btn_import_json:"⬆️ Yedek içe aktar", btn_export_csv:"📄 Harcamalar CSV",
+    btn_manage_cats:"🏷️ Kategorileri yönet", toast_exported:"⬇️ Yedek dışa aktarıldı", toast_imported:"✅ Veriler içe aktarıldı", toast_import_error:"❌ Geçersiz dosya",
+    cat_food:"Yemek", cat_transport:"Ulaşım", cat_shopping:"Alışveriş", cat_housing:"Konut",
+    cat_leisure:"Eğlence", cat_health:"Sağlık", cat_subscriptions:"Abonelik", cat_other:"Diğer",
+    cats_title:"Kategoriler", btn_add_cat:"+ Kategori", label_cat_name:"Ad", label_cat_emoji:"Emoji", label_cat_color:"Renk",
+    toast_cat_added:"✅ Kategori eklendi", toast_cat_deleted:"🗑️ Kategori silindi", confirm_delete_cat:"Kategori silinsin mi? Harcamaları „Diğer“ olur.",
+    more_title:"Daha Fazla", more_sub:"Yönetim & ayarlar",
+    mi_goals_sub:"Hayallerin için biriktir", mi_subs_sub:"Aylık sabit giderler", mi_budgets_sub:"Limitler & uyarılar",
+    mi_income_sub:"Gelir kaynaklarını yönet", mi_settings_sub:"Dil, tema, yedek",
+    btn_cancel:"İptal", btn_confirm:"Onayla", btn_close:"Kapat", btn_edit:"Düzenle", btn_delete:"Sil",
+    legend_savings:"Tasarruf", legend_free:"Boş", legend_over:"Aşım",
+    err_name_amount:"❌ Lütfen ad ve tutar gir", err_fields:"❌ Lütfen tüm alanları doldur",
+    btn_salary_here:"Yeni Ay", salary_arrival_confirm:"Yeni ay başlasın mı? Bu ayın harcamaları silinir (abonelik, gelir & hedefler kalır).", toast_new_month:"🎉 Yeni ayda bol şans!",
+    ios_title:"📲 Ana Ekrana", ios_step1:"Safari'de 'Paylaş'a dokun", ios_step2:"'Ana Ekrana Ekle' seç", ios_step3:"'Ekle'ye dokun — bitti!",
+    install_title:"Uygulamayı yükle", install_sub:"Tarayıcısız native mod", btn_install:"Yükle",
+    update_available:"✨ Yeni sürüm mevcut", btn_update:"Yenile"
+  }
+};
+
+const LOCALES = { de:'de-DE', en:'en-US', tr:'tr-TR' };
+
+function currentLang() { return (typeof state !== 'undefined' && state && state.lang) || 'de'; }
+function currentLocale() { return LOCALES[currentLang()] || 'de-DE'; }
+
+function t(key, vars) {
+  const lang = currentLang();
+  let str = (i18n[lang] && i18n[lang][key]) || i18n.de[key] || key;
+  if (vars) for (const k in vars) str = str.replaceAll('{' + k + '}', vars[k]);
+  return str;
+}
+
+/* Apply translations to elements carrying data-t / data-t-ph / data-t-aria */
+function applyTranslations(root) {
+  root = root || document;
+  root.querySelectorAll('[data-t]').forEach(el => { el.textContent = t(el.getAttribute('data-t')); });
+  root.querySelectorAll('[data-t-ph]').forEach(el => { el.setAttribute('placeholder', t(el.getAttribute('data-t-ph'))); });
+  root.querySelectorAll('[data-t-aria]').forEach(el => { el.setAttribute('aria-label', t(el.getAttribute('data-t-aria'))); });
+  document.documentElement.lang = currentLang();
+}
